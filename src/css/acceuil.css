@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight&family=Mulish:ital,wght@0,200;0,400;0,600;0,700;0,900;1,200;1,600&family=Poppins&display=swap');
+*{
+    font-family: 'Mulish', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #ffffff;
+}
+.entete {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #EEEDE7;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 10px 8%;
+    height: 40px;
+}
+.entete .tel {
+    display: flex;
+    font-size: 14px;
+    gap: 10px;
+    align-items: center;
+    font-family: 'Mulish Regular', sans-serif;
+    color: black;
+     z-index: 20;
+     margin-left: 50px;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 8%;
+    height: 70px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    transition: top 0.3s;
+    position: fixed;
+  }
+  
+  
+header .logo img {
+
+}
+header .logo span {
+    color: #000;
+}
+.menu {
+    display: flex;
+    text-align: center;
+}
+.menu li {
+    list-style: none;
+    margin: 0 15px;
+}
+.menu li a {
+    font-size: 14px;
+    color: #000;
+    font-weight: 300;
+    transition: 0.2s;
+    font-family: 'Mulish Regular', sans-serif;
+}
+.menu li a:hover {
+    color: #22E41E;
+}
+header button {
+    background-color: #22E41E;
+    cursor: pointer;
+    color: #fff;
+    padding: 10px 24px;
+    border-color: #22E41E;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+
+    
+}
+.img {
+    height: 480px;
+    top: 60px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url('../assets/image/background.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.texte h2{
+    display: flex;
+    width: 500px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #FFF;
+    font-family: 'Mulish Black', sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px;
+}
+
+.texte{
+    padding: 10%;
+    padding-left: 6%;
+}
+.texte .button{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 15px;
+}
+.texte button{
+    padding: 10px 24px;
+    height: 48px;
+}
+.button .button1 button{
+    border-radius: 8px;
+    border-color: #22E41E;
+    background-color: #22E41E;
+    animation: pulse 1s infinite;
+}
+.button .button1 button a{
+    color: #FFF;
+}
+.button .button2 button{
+    border-radius: 8px;
+    border-color: #22E41E;
+    background-color:#FFF;
+}
+.button .button2 button a{
+    color: #000000;
+}
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    
+    }
+    50% {
+      transform: scale(1.05);
+      background-color: #000;
+      color: #FFF;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+/* main */
+main{
+  width: 100%;
+  background-color: #EEEDE7;
+}
+ main .slider{
+  padding-top: 6%;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin: auto;
+
+}
+.image1 img{
+    width: 250px;
+    height: 296px;
+    flex-shrink: 0;
+    border-radius: 10px;
+
+}
+.sider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+}
+.sider .image1{
+    margin: 5px;
+}
+.images .slider-container{
+    display: flex;
+    align-items: center;
+} 
+.image1 {
+    position: relative;
+  }
+  
+  .content {
+    width: 250px;
+    height: 296px;
+    display: none; /* Cachez la classe .content par défaut */
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 43%;
+    flex-shrink: 0;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border-radius: 10px;
+  }
+  
+  .image1:hover .content {
+    display: block; /* Affichez la classe .content au survol de .image-container */
+  }
+  .content h4{
+    padding-top: 50%;
+  }
+  .content button{
+    background-color: #22E41E;
+    cursor: pointer;
+    padding: 10px 24px;
+    border-color: #22E41E;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin-top: 15px;
+  }
+  .content button a{
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* eleveur */
+  .eleveur{
+    background-color: #ffffff;
+    width: 100%;
+
+  }
+  .elevage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4%;
+    margin: auto;
+    gap:10%;
+    margin-left: 60px;
+  }
+  .texte p{
+    line-height: 1.9;
+    font-size: 14px;
+    font-family: 'Mulish Regular', sans-serif;
+  }
+  .texte h1{
+    font-family: 'Mulish Black', sans-serif;
+    font-size: 24px;
+    line-height: 1.9;
+  }
+
+  .serve{
+    width: 200px;
+    height: 150px;
+    background-color: #FFF;
+  }
+  .serve img{
+     padding-top: 15px;
+  }
+
+
+
+
+
