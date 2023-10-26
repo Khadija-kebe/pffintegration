@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom'
 import Admin from './dashbord/admin'
 import Eleveur from './dashbord/dashbordeleveur'
 import Acceuil from './page/acceuil'
+import Boutique from './page/boutique'
+import Ajoutanimal from './page/ajoutanimal'
 import './App.css'
 
 function App() {
@@ -13,6 +15,8 @@ function App() {
           <Route path="/acceuil" element={<Acceuil />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/eleveur" element={<Eleveur />} />
+          <Route path="/boutique" element={<Boutique />} />
+          <Route path="/ajout" element={<Ajoutanimal/>} />
           {/* <Route path="/login" element={<Login />} /> */}
       </Routes>
     </>

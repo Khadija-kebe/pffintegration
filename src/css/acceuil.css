@@ -248,17 +248,186 @@ main{
     font-size: 24px;
     line-height: 1.9;
   }
+ .titre
+ {
+  padding: 21px;
+  font-family: 'Mulish Regular', sans-serif;
+  font-weight: 900px;
+  line-height: normal;
+ }
+  .service{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    gap: 40px;
+  }
 
   .serve{
-    width: 200px;
+    width: 250px;
     height: 150px;
     background-color: #FFF;
+    border-radius: 0px 20px;
+    box-shadow: 0 10px 10px ;
   }
   .serve img{
      padding-top: 15px;
+     
   }
+  .serve h6{
+    padding-top: 10px;
+  }
+  .serve p{
+    padding-top: 10px;
 
+    
+  }
+  .jumbo-titlegroup{
+    padding: 80px;
+  }
+.jumbo-titlegroup .text-after
+{
+  text-align: center;
+  color: #22E41E;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  font-family: 'Inter','Semi Bold';
+}
+.jumbo-titlegroup p
+{
+  color: var(--black, #111C37);
+  font-size: 24px;
+  font-style: normal;
+  padding-top: 20px;
+  font-weight: 700;
+  line-height: 27px;
+  text-align: center;
+}
+.jumbo-trun 
+{
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 1.9;
+  width: 50%;
+  font-family: 'Inter Regular', sans-serif;
+  
+}
+.temoin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* commentaire */
 
+/* Conteneur principal des témoignages */
+.reviews-content {
+  margin-top: 10px;
+}
 
+/* Conteneur de chaque témoignage */
+.single-testimonial-box {
+  padding: 50px 30px;
+ 
+  overflow-x: hidden;
+  transition: 0.3s;
+}
 
+.single-testimonial-box:hover {
+ 
+}
 
+.slick-current .single-testimonial-box {
+ 
+}
+
+/* Conteneur de description du témoignage */
+.single-testimonial-box {
+  width: 404px;
+  background: #EEEDE7;
+}
+
+/* Conteneur d'informations sur le témoignage */
+.testimonial-info {
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+/* Conteneur de l'image du témoignage */
+.testimonial-img {
+  position: relative;
+  top: 11px;
+  margin-right: 5px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.testimonial-img img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+/* Conteneur des informations personnelles du témoin */
+.testimonial-person {
+  margin-left: 15px;
+  margin-top: 11px;
+}
+
+.testimonial-person h2 {
+  color: #000000;
+  font-family: 'Mulish Black', sans-serif;
+  font-size: 18px;
+}
+
+.testimonial-person h4 {
+  color: #000000;
+  font-family: 'Mulish Regular', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+/* Conteneur du commentaire du témoignage */
+.testimonial-comment {
+  margin-top: 18px;
+}
+
+.testimonial-comment p {
+  color: #000000;
+  font-size: 14px;
+}
+.slick-list{
+  display: flex;
+ 
+}
+.testimonial-carousel{
+ 
+}
+.temoignage{
+  justify-content: center;
+  margin-left: 2%;
+  margin-right: 2%;
+ 
+}
+.reviews-content .slick-initialized .slick-slide {
+  display: block;
+  
+}
+.reviews-content .slick-slide.slick-cloned {outline: 0!important;}
+.reviews-content .slick-slide {
+  margin-left: 5px;
+  padding-right: 10px;
+}
+.reviews-content .slick-slide {
+transition: all ease-in-out .3s;
+opacity: .5;
+}
+.reviews-content .slick-active {
+opacity: .5;
+}
+.reviews-content .slick-current {
+opacity: 1;
+}

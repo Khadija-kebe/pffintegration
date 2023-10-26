@@ -12,9 +12,18 @@ const Acceuil = () => {
         infinite: true,
         speed: 500,
         slidesToShow: 4,
-        slidesToScroll: 1,
+        slidesToScroll:1,
         autoplay: true, // Ajout de l'autoplay
         autoplaySpeed: 1000, // Vitesse de défilement automatique en millisecondes
+      };
+      const parametre = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        autoplay: true,
+        autoplaySpeed: 4000,
       };
     return (  
         <>
@@ -30,7 +39,7 @@ const Acceuil = () => {
                     <ul className="menu">
                         <li><a href="#home">Acceuil</a></li>
                         <li><a href="#cars">Sante animal</a></li>
-                        <li><a href="#services">Nos produits</a></li>
+                        <li><a href="/boutique">Nos produits</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                     </div>
@@ -156,9 +165,25 @@ const Acceuil = () => {
                 </div>
             </div>
             <section>
+            <h1 className='titre'>Nos services</h1>
                 <div className="service">
-                    <h1>Services</h1>
+                    
                     <div className="service">
+                        <div className="serve">
+                         <img src="src/assets/image/sante.svg" alt="" />
+                         <h6>sante</h6>
+                         <p>Conseils sanitaires</p>
+                        </div>
+                        <div className="serve">
+                         <img src="src/assets/image/sante.svg" alt="" />
+                         <h6>sante</h6>
+                         <p>Conseils sanitaires</p>
+                        </div>
+                        <div className="serve">
+                         <img src="src/assets/image/sante.svg" alt="" />
+                         <h6>sante</h6>
+                         <p>Conseils sanitaires</p>
+                        </div>
                         <div className="serve">
                          <img src="src/assets/image/sante.svg" alt="" />
                          <h6>sante</h6>
@@ -167,6 +192,126 @@ const Acceuil = () => {
                     </div>
                 </div>
             </section>
+            <div className="jumbo">
+                <div className="jumbo-titlegroup">
+                    <h5 className='text-after'>Temoignages</h5>
+                    <p>Ce qu'ils disent à propos de notre travail</p>
+    
+                </div>
+                
+                <div className="reviews-content">
+                 <Slider className='temoignage' {...parametre}>
+                    <div className="testimonial-carousel">
+                        <div className="single-testimonial-box">
+                            <div className="testimonial-description">
+                                <div className="testimonial-info">
+                                    <div className="testimonial-img">
+                                        <img src="src\assets\image\profil.jpg" alt="clients" />
+                                    </div>
+                                    <div className="testimonial-person">
+                                        <h2>Tom Leakar</h2>
+                                        <h4>London, UK</h4>
+                                    </div>
+                                </div>
+                                <div className="testimonial-comment">
+                                    <p>
+                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis eaque.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                        </div> 
+                    </div>
+                    <div className="testimonial-carousel">
+                        <div className="single-testimonial-box">
+                            <div className="testimonial-description">
+                                <div className="testimonial-info">
+                                    <div className="testimonial-img">
+                                        <img src="src\assets\image\profil.jpg" alt="clients" />
+                                    </div>
+                                    <div className="testimonial-person">
+                                        <h2>Tom Leakar</h2>
+                                        <h4>London, UK</h4>
+                                    </div>
+                                </div>
+                                <div className="testimonial-comment">
+                                    <p>
+                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis eaque.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                        </div> 
+                    </div>
+                    <div className="testimonial-carousel">
+                        <div className="single-testimonial-box">
+                            <div className="testimonial-description">
+                                <div className="testimonial-info">
+                                    <div className="testimonial-img">
+                                        <img src="src\assets\image\profil.jpg" alt="clients" />
+                                    </div>
+                                    <div className="testimonial-person">
+                                        <h2>Tom Leakar</h2>
+                                        <h4>London, UK</h4>
+                                    </div>
+                                </div>
+                                <div className="testimonial-comment">
+                                    <p>
+                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis eaque.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                        </div> 
+                    </div>
+                    <div className="testimonial-carousel">
+                        <div className="single-testimonial-box">
+                            <div className="testimonial-description">
+                                <div className="testimonial-info">
+                                    <div className="testimonial-img">
+                                        <img src="src\assets\image\profil.jpg" alt="clients" />
+                                    </div>
+                                    <div className="testimonial-person">
+                                        <h2>Tom Leakar</h2>
+                                        <h4>London, UK</h4>
+                                    </div>
+                                </div>
+                                <div className="testimonial-comment">
+                                    <p>
+                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis eaque.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                        </div> 
+                    </div>
+                    <div className="testimonial-carousel">
+                        <div className="single-testimonial-box">
+                            <div className="testimonial-description">
+                                <div className="testimonial-info">
+                                    <div className="testimonial-img">
+                                        <img src="src\assets\image\profil.jpg" alt="clients" />
+                                    </div>
+                                    <div className="testimonial-person">
+                                        <h2>Tom Leakar</h2>
+                                        <h4>London, UK</h4>
+                                    </div>
+                                </div>
+                                <div className="testimonial-comment">
+                                    <p>
+                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis eaque.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                        </div> 
+                    </div>
+                    </Slider>
+                    
+                 
+                </div>
+
+            </div>
         </div>
         </>
     );

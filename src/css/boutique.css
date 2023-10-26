@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight&family=Mulish:ital,wght@0,200;0,400;0,600;0,700;0,900;1,200;1,600&family=Poppins&display=swap');
+*{
+    font-family: 'Mulish', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #ffffff;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 8%;
+    height: 70px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    transition: top 0.3s;
+    position: fixed;
+  }
+  
+  
+header .logob img {
+
+}
+header .logob span {
+    color: #000;
+}
+.menub {
+    display: flex;
+    text-align: center;
+}
+.menub li {
+    list-style: none;
+    margin: 0 15px;
+}
+.menub li a {
+    font-size: 14px;
+    color: #000;
+    font-weight: 300;
+    transition: 0.2s;
+    font-family: 'Mulish Regular', sans-serif;
+}
+.menub li a:hover {
+    color: #22E41E;
+}
+header button {
+    background-color: #22E41E;
+    cursor: pointer;
+    color: #fff;
+    padding: 10px 24px;
+    border-color: #22E41E;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+
+    
+}
+.imgb {
+    height: 490px;
+    margin-top: 4%;
+    background-image: url('../assets/image/boutique.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: initial;
+}
+.texteb{
+    
+    padding-left: 55%;
+    padding-top: 14%;
+}
+.texteb h2{
+   text-align: right;
+    width: 500px;
+    flex-direction: column;
+    justify-content: center;
+  
+    color: #FFF;
+    font-family: 'Mulish Black', sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+   
+}
+.texteb .sen h2{
+    padding-right: 22%;
+    padding-top: 10px;
+    color: #22E41E;
+}
+.moncar{
+    height: 1265px;
+    display: block;
+    background-color: #EEEDE7;
+    justify-content: center;
+    position: initial;
+}
+.moncar h1{
+    padding-top: 4%;
+    text-align: center;
+    font-size: 24px;
+    font-family: 'Mulish Black', sans-serif;
+}
+.moncar .car1{
+    border-radius: 10px;
+    width: 340px;
+    height: 440px;
+    background-color: #ffffff;
+    text-align: center;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.carimg img{
+    width: 223px;
+   height: 246px;
+}
+.textcar h5{
+color: #000000;
+font-family: 'Mulish Black', sans-serif; 
+font-size: 24px;
+font-style: normal;
+font-weight: 900;
+line-height: normal;
+}
+.textcar p{
+ padding-top: 10px;
+color: #000;
+font-family:'Mulish Regular', sans-serif; ;;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.textcar button{
+    margin-top: 10px;
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    background-color: #22E41E;
+    color: #ffffff;
+    border-radius: 8px;
+   border-color: #22E41E;
+}
+.moncar .car{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
