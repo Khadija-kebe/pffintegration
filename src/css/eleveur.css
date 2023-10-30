@@ -320,18 +320,32 @@ nav .profile .profile-link a:hover {
 	padding: 24px;
 	overflow-x: auto;
 }
-#content main .table-data .head {
+#content main .table-data .headd {
 	display: flex;
 	align-items: center;
-	grid-gap: 16px;
-	margin-bottom: 24px;
+	
+	margin-bottom: 30px;
+	gap: 60%;
 }
-#content main .table-data .head h3 {
+#content main .table-data .headd button{
+	padding: 10px 24px;
+	display: flex;
+	background-color: #22E41E;
+	color: #fff;
+	border-radius: 8px;
+	border-color: #22E41E;
+	padding: 10px;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	flex-shrink: 0;
+}
+#content main .table-data .headd h3 {
 	margin-right: auto;
 	font-size: 24px;
 	font-weight: 600;
 }
-#content main .table-data .head .bx {
+#content main .table-data .headd .bx {
 	cursor: pointer;
 }
 

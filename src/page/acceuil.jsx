@@ -48,7 +48,7 @@ const Acceuil = () => {
                         <button className="login_btn">se connecter</button>
                     </div>
                 </header>
-                <div className="img ">
+                <div className="imgg ">
                     <div className="texte">
                         <h2>Faites decoler votre elevage avec les meilleurs eleveurs</h2>
                         <div className="button">

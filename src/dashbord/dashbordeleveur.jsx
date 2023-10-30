@@ -1,7 +1,12 @@
 import React from 'react';
 import '../css/eleveur.css'; // Assurez-vous que le chemin vers le fichier CSS est correct
 import { useState } from 'react';
+import { Modal } from '@mui/material';
+import Ajoutanimal from '../page/ajoutanimal';
 const Eleveur = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
    
   const [sidebarHidden, setSidebarHidden] = useState(false);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
@@ -46,7 +51,7 @@ const Eleveur = () => {
   const sidebarClass = sidebarHidden ? 'hide' : '';
 
   return (
-    <div>
+    <>
       <section id="sidebar" className={sidebarClass}>
         <a href="#" className="brand">
           <span><img src="src\assets\image\log.png" alt=""/>
@@ -64,7 +69,7 @@ const Eleveur = () => {
         </a>
         {activeSubMenu === 'utilisateurs' && (
           <ul className="side-dropdown">
-            <li><a href="#">listes des animaux</a></li>
+            <li><a href="" >listes des animaux</a></li>
             <li><a href="#">ajouter un animal</a></li>
           </ul>
         )}
@@ -133,10 +138,12 @@ const Eleveur = () => {
             </ul>
             <div className="table-data">
             <div className="order">
-              <div className="head">
-                <h3>listes des animaux</h3>
+              <div className="headd">
+                <div><h3>Listes des animaux</h3>
                 <i className='bx bx-search' ></i>
                 <i className='bx bx-filter' ></i>
+                </div>
+                <div> <button onClick={handleOpen}>Ajouter un animal</button></div>
               </div>
               <table>
                 <thead>
@@ -177,7 +184,17 @@ const Eleveur = () => {
         </main>
         {/* Votre contenu va ici */}
       </section>
-    </div>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+       
+      >
+        <Ajoutanimal></Ajoutanimal>
+       
+      </Modal>
+    </>
   )
 }
 

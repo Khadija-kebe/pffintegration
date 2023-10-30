@@ -25,6 +25,7 @@ html {
 
 body {
 	background: var(--grey);
+	background-color: #EEEDE7;
 	overflow-x: hidden;
 }
 
@@ -221,6 +222,7 @@ nav {
 	top: 0;
 	left: 0;
 	z-index: 100;
+	position: fixed;
 }
 nav .toggle-sidebar {
 	font-size: 18px;
@@ -435,7 +437,9 @@ main .data {
     display: flex;
     gap: 40px;
 }
-
+.utilisateurs H1{
+	text-align: left;
+}
 
 /* Styles pour les écrans de petite taille */
 @media (max-width: 768px) {

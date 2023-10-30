@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/admin.css'; // Assurez-vous que le chemin vers le fichier CSS est correct
 import { useState } from 'react';
+import Chart from './chart';
 const Admin = () => {
    
   const [sidebarHidden, setSidebarHidden] = useState(false);
@@ -172,6 +173,8 @@ const Admin = () => {
                 <span className="label">30%</span>
               </div>
             </div>
+                 
+                  <Chart></Chart  >
                   <div className="utilisateurs">
                         <h1>Listes des utilisateurs</h1>
                         <div className="liste">
@@ -203,7 +206,8 @@ const Admin = () => {
                                   <div className="plus">
                                       <a href="#">Voirs plus</a>
                                   </div>
-                              </div><div className="utilisa">
+                              </div>
+                              <div className="utilisa">
                                   <span><img src="src\assets\image\l.svg" alt=""/></span>
                                   <div>
                                       <h5>Mbayang Dramer</h5>
@@ -213,9 +217,19 @@ const Admin = () => {
                                       <a href="#">Voirs plus</a>
                                   </div>
                               </div>
+                              <div className="utilisa">
+                                  <span><img src="src\assets\image\l.svg" alt=""/></span>
+                                  <div>
+                                      <h5>Mbayang Dramer</h5>
+                                      <p>eleveurs</p>
+                                  </div>
+                                  <div className="plus">
+                                      <a href="#">Voirs plus</a>
+                                  </div>
+                              </div>
+                              
                           </div>
-                          
-                  </div>
+                          </div>
               </main>
         {/* Votre contenu va ici */}
       </section>

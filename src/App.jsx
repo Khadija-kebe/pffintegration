@@ -5,6 +5,7 @@ import Eleveur from './dashbord/dashbordeleveur'
 import Acceuil from './page/acceuil'
 import Boutique from './page/boutique'
 import Ajoutanimal from './page/ajoutanimal'
+import Chart from './dashbord/chart'
 import './App.css'
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
           <Route path="/eleveur" element={<Eleveur />} />
           <Route path="/boutique" element={<Boutique />} />
           <Route path="/ajout" element={<Ajoutanimal/>} />
+          <Route path="/chart" element={<Chart/>} />
+
           {/* <Route path="/login" element={<Login />} /> */}
       </Routes>
     </>

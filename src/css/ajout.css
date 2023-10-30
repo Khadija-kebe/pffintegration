@@ -1,3 +1,64 @@
-Input{
+
+input{
     border: 1px solid;
+    display: flex;
+    width: 428px;
+    padding: 10px 24px;
+    align-items: center;
+    gap: 10px;
+    border-color: #C8C8C8;
+    margin-top: 10px;
+}
+label{
+    cursor: pointer;
+    display: inline-block;
+    color: #000;
+     font-family: Mulish;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    margin-top: 10px;
+}
+form{
+margin: auto;
+width: 920px;
+height: 522px;
+flex-shrink: 0;
+background-color: #FFFFFF;
+margin-top: 5%;
+}
+.form{
+  padding-top: 10%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  gap:25px;
+}
+select{
+    border: 1px solid;
+    display: flex;
+    width: 428px;
+    padding: 10px 24px;
+    align-items: center;
+    gap: 10px;
+    border-color: #C8C8C8;
+    margin-top: 10px;
+}
+.check{
+    margin-top: 10px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+   
+   
+}
+ .form2 button{
+ 
+    padding: 10px 36px;
+    width: 428px;
+    margin-top: 20px;
+    background-color: #22E41E;
+    border-color: #22E41E;
 }
