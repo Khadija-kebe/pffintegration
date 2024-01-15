@@ -1,239 +1,288 @@
 import React from 'react';
-import '../css/admin.css'; // Assurez-vous que le chemin vers le fichier CSS est correct
-import { useState } from 'react';
+import '../css/admin.css';
+import { useState ,useEffect } from 'react';
 import Chart from './chart';
+import 'material-icons/iconfont/material-icons.css';
+import { Link } from 'react-router-dom';
+import Anime from '../composantAdmin/animadmin';
+import AdminAnimaux from './AdminAnimaux';
+import AdminRecomandation from './adminRecomandation';
 const Admin = () => {
-   
-  const [sidebarHidden, setSidebarHidden] = useState(false);
-  const [activeSubMenu, setActiveSubMenu] = useState(null);
-  
 
-  //pour le profil
-  const [isDropdownVisible, setDropdownVisible] = useState(false);
+    const [listeAnime, setListeAnime] = useState(false);
+    const toggleAnime = () => {
+      setListeAnime(!listeAnime);
+    };
 
-  const handleProfileClick = () => {
-    setDropdownVisible(!isDropdownVisible);
+    const [listeRecom, setListeRecom] = useState(false);
+    const toggleRecom = () => {
+      setListeRecom(!listeRecom);
+    };
+
+  const [listeVisible, setListeVisible] = useState(false);
+  const toggleListe = () => {
+    setListeVisible(!listeVisible);
   };
-  const toggleSubMenu = (menuName) => {
-    if (activeSubMenu === menuName) {
-      setActiveSubMenu(null); // Ferme le sous-menu actif s'il est déjà ouvert
-    } else {
-      setActiveSubMenu(menuName); // Ouvre le sous-menu correspondant
-    }
-  };
+  const [isMenuOpen, setMenuOpen] = useState(false);
+const [isDarkMode, setDarkMode] = useState(false);
 
-  const toggleSidebar = () => {
-    setSidebarHidden(!sidebarHidden);
-  };
+const toggleMenu = () => {
+  setMenuOpen(!isMenuOpen);
+};
 
-  const handleDropdownClick = (e, item) => {
-    e.preventDefault();
+const closeMenu = () => {
+  setMenuOpen(false);
+};
 
-    if (!item.classList.contains('active')) {
-      const allDropdown = document.querySelectorAll('#sidebar .side-dropdown');
-      allDropdown.forEach((i) => {
-        const aLink = i.parentElement.querySelector('a:first-child');
-        aLink.classList.remove('active');
-        i.classList.remove('show');
-      });
-    }
+const toggleDarkMode = () => {
+  setDarkMode(!isDarkMode);
+}; 
 
-    item.classList.toggle('show');
-    const a = item.parentElement.querySelector('a:first-child');
-    a.classList.toggle('active');
-  };
+const [menuSelected, setMenuSelected] = useState('dashboard');
 
+const handleMenuClick = (selectedPage) => {
+  setMenuSelected(selectedPage);
+};
 
+// Utilisez une structure conditionnelle pour déterminer quel composant afficher
+let mainContent;
+switch (menuSelected) {
+  case 'liste':
+    // mainContent = <ListeRendezVous />;
+    break;
+  // case 'usersList':
+  //   mainContent = <UsersList />;
+  //   break;
+  // Ajoutez d'autres cas au besoin pour d'autres pages
+  default:
+    // mainContent = <ListeRendezVous />;
+}
 
-
-
-
-  const sidebarClass = sidebarHidden ? 'hide' : '';
 
   return (
-    <div>
-      <section id="sidebar" className={sidebarClass}>
-        <a href="#" className="brand">
-          <span><img src="src\assets\image\log.png" alt=""/>
-          </span> 
-        </a>
-        <ul className="side-menu">
-          <li>
-            <a href="#" className="active">
-             <span><img src="src\assets\image\kle.svg" alt=""/></span> <span><h4>Tableau de bord</h4></span>
-            </a>
-          </li>
-          <li>
-        <a href="#" className='user' onClick={() => toggleSubMenu('utilisateurs')}>
-          <span><img src="src\assets\image\pubb.svg" alt=""/></span> <span>utilisateurs</span><img className='img' src="src\assets\image\vector.svg" alt=""/>
-        </a>
-        {activeSubMenu === 'utilisateurs' && (
-          <ul className="side-dropdown">
-            <li><a href="#">Eleveurs</a></li>
-            <li><a href="#">veterinaires</a></li>
-            <li><a href="#">clients</a></li>
-          </ul>
-        )}
-      </li>
-      <li>
-        <a href="#" className='user' onClick={() => toggleSubMenu('publications')}>
-          <span><img src="src\assets\image\pub.svg" alt=""/></span> <span>Publications</span><img className='img' src="src\assets\image\vector.svg" alt=""/>
-        </a>
-        {activeSubMenu === 'publications' && (
-          <ul className="side-dropdown">
-            <li><a href="#">recommandations</a></li>
-            <li><a href="#">publication eleveurs</a></li>
-          </ul>
-        )}
-      </li>
-        </ul>
-      </section>
-      <section id="content">
-        <nav>
-          <div>
-           <img src="src\assets\image\menu.svg" alt=""  onClick={toggleSidebar} />
-          </div>
-          <div className='fil'>
-            <div>
-              <a href="#" className="nav-link">
-              <img src="src\assets\image\notification.svg" alt=""/>
-                <span className="badge">5</span>
-              </a>
-              <a href="#" className="nav-link">
-                <img src="src\assets\image\notification.svg" alt=""/>
-                <span className="badge">8</span>
-              </a>
-            </div>
-            <span className="divider"></span>
-            <div className="profile" onClick={handleProfileClick}>
-              <img
-                src="src\assets\image\pro.svg"
-                alt=""
-              />
-              <ul className={`profile-link ${isDropdownVisible ? 'show' : ''}`}>
-                <li>
-                  <a href="#">
-                  <span><img src="src\assets\image\profile.svg" alt=""/></span> <span>Profil</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                  <span><img src="src\assets\image\settingpro.svg" alt=""/></span> <span>Parametre</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                  <span><img src="src\assets\image\deconnexion.svg" alt=""/></span> <span>deconnexion</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+    <>
+      <div className="bodyVete">
+    <div className="containervete">
+       
+       <aside  >
+           {/* <div className="toggleVete">
+               <div className="logo">
+                   <div className='vikkk'>SEN<span className="danger">TROUP'O</span></div>
+               </div>
+               <div className="close" id="close-btn">
+                   <span className="material-icons-sharp">
+                       close
+                   </span>
+               </div>
+           </div> */}
 
-        </nav>
-        <main>
-           
-            <ul class="breadcrumbs">
-              <li><a href="#">Acceuil</a></li>
-              <li class="divider">/</li>
-              <li><a href="#" class="active">controle</a></li>
+           <div className="sidebarre">
+               <Link to="" className="active">
+                   <span className="material-icons-sharp">
+                       dashboard
+                </span>
+                   <h3 >Dashboard</h3>
+               </Link>
+               
+                
+               <Link to="">
+                   <span className="material-icons-sharp" onClick={toggleListe}>
+                       person_outline
+                   </span>
+                   <h3>Utilisateurs</h3>
+                   
+               </Link>
+              
+              
+              
+               <Link to="">
+                   <span className="material-icons-sharp">
+                       receipt_long
+                   </span>
+                   <h3>Historique</h3>
+               </Link>
+               <Link to="" >
+                   <span class="material-icons-sharp" onClick={toggleAnime}>
+                       insights
+                   </span>
+                   <h3>Publications</h3>
+               </Link>
+               {/* <Outlet></Outlet> */}
+               
+               <Link to="">
+                   <span className="material-icons-sharp" onClick={ toggleRecom }>
+                       inventory
+                   </span>
+                   <h3> recommandations</h3>
+               </Link>
+               <Link to="">
+                   <span className="material-icons-sharp">
+                       report_gmailerrorred
+                   </span>
+                   <h3>Reports</h3>
+               </Link>
+               <Link to="">
+                   <span className="material-icons-sharp">
+                       settings
+                   </span>
+                   <h3>Parametre</h3>
+               </Link>
+               
+               <Link to="">
+                   <span className="material-icons-sharp">
+                       logout
+                   </span>
+                   <h3>Deconnexion</h3>
+               </Link>
+           </div>
+       </aside>
+       
+       <div className='mainVete'>
+           <div className='vikk'>Dahbord Admin</div>
+           <div className="kom">
+           <ul class="breadcrumbs">
+              <li><Link to="/">Acceuil</Link></li>
+              
             </ul>
-                  <div className="info-data">
-              <div className="card">
-                <div className="head">
-                  <div>
-                    <h2>1500</h2>
-                    <p>utilisateurs</p>
-                  </div>
-                              <span><img src="src\assets\image\au.svg" alt=""/></span>
-                </div>
-                <span className="progress" data-value="40%"></span>
-                <span className="label">40%</span>
-              </div>
-              <div className="card">
-                <div className="head">
-                  <div>
-                    <h2>234</h2>
-                    <p>eleveurs</p>
-                  </div>
-                              <span><img src="src\assets\image\au.svg" alt=""/></span>
-                </div>
-                <span className="progress" data-value="60%"></span>
-                <span className="label">60%</span>
-              </div>
-              <div className="card">
-                <div className="head">
-                  <div>
-                    <h2>45</h2>
-                    <p>veterinaires</p>
-                  </div>
-                              <span><img src="src\assets\image\ve.svg" alt=""/></span>
-                </div>
-                <span className="progress" data-value="30%"></span>
-                <span className="label">30%</span>
-              </div>
-            </div>
-                 
-                  <Chart></Chart  >
-                  <div className="utilisateurs">
-                        <h1>Listes des utilisateurs</h1>
-                        <div className="liste">
-                              <div className="utilisa">
-                                  <span><img src="src\assets\image\l.svg" alt=""/></span>
-                                  <div>
-                                      <h5>Mbayang Dramer</h5>
-                                      <p>eleveurs</p>
-                                  </div>
-                                  <div className="plus">
-                                      <a href="#">Voirs plus</a>
-                                  </div>
-                              </div>
-                              <div className="utilisa">
-                                  <span><img src="src\assets\image\l.svg" alt=""/></span>
-                                  <div>
-                                      <h5>Mbayang Dramer</h5>
-                                      <p>eleveurs</p>
-                                  </div>
-                                  <div className="plus">
-                                      <a href="#">Voirs plus</a>
-                                  </div>
-                              </div><div className="utilisa">
-                                  <span><img src="src\assets\image\l.svg" alt=""/></span>
-                                  <div>
-                                      <h5>Mbayang Dramer</h5>
-                                      <p>eleveurs</p>
-                                  </div>
-                                  <div className="plus">
-                                      <a href="#">Voirs plus</a>
-                                  </div>
-                              </div>
-                              <div className="utilisa">
-                                  <span><img src="src\assets\image\l.svg" alt=""/></span>
-                                  <div>
-                                      <h5>Mbayang Dramer</h5>
-                                      <p>eleveurs</p>
-                                  </div>
-                                  <div className="plus">
-                                      <a href="#">Voirs plus</a>
-                                  </div>
-                              </div>
-                              <div className="utilisa">
-                                  <span><img src="src\assets\image\l.svg" alt=""/></span>
-                                  <div>
-                                      <h5>Mbayang Dramer</h5>
-                                      <p>eleveurs</p>
-                                  </div>
-                                  <div className="plus">
-                                      <a href="#">Voirs plus</a>
-                                  </div>
-                              </div>
-                              
-                          </div>
-                          </div>
-              </main>
-        {/* Votre contenu va ici */}
-      </section>
+           </div>
+          
+           <div className="analyseur">
+               <div className="saleseur">
+                   <div className="stateur">
+                      <div className="kahf">
+                        <div className="infeur">
+                            <h3>Nombres eleveurs</h3>
+                            <h1 className='infoh1a'>40</h1>
+                        </div>
+                        <div className="progresseur">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div className="percentage">
+                                <p>+31%</p>
+                            </div>
+                        </div>
+                       </div>
+                   </div>
+               </div>
+               <div className="visits">
+                   <div className="stateur">
+                   <div className="kahf">
+                       <div className="infeur">
+                           <h3>Nbres Veterinaires</h3>
+                           <h1 className='infoh1a'>24</h1>
+                       </div>
+                       <div className="progresseur">
+                           <svg>
+                               <circle cx="38" cy="38" r="36"></circle>
+                           </svg>
+                           <div className="percentage">
+                               <p>20%</p>
+                           </div>
+                       </div>
+                       </div>
+                   </div>
+               </div>
+               <div className="searches">
+                   <div className="stateur">
+                   <div className="kahf">
+                       <div className="infeur">
+                           <h3>Nombres Publications</h3>
+                           <h1 className='infoh1a'>20</h1>
+                       </div>
+                       <div className="progresseur">
+                           <svg>
+                               <circle cx="38" cy="38" r="36"></circle>
+                           </svg>
+                           <div className="percentage">
+                               <p>+21%</p>
+                           </div>
+                       </div>
+                       </div>
+                   </div>
+               </div>
+               <div className="searches">
+                   <div className="stateur">
+                   <div className="kahf">
+                       <div className="infeur">
+                           <h3>Nombres Publications</h3>
+                           <h1 className='infoh1a'>20</h1>
+                       </div>
+                       <div className="progresseur">
+                           <svg>
+                               <circle cx="38" cy="38" r="36"></circle>
+                           </svg>
+                           <div className="percentage">
+                               <p>+21%</p>
+                           </div>
+                       </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+          
+           <div>
+               {listeVisible && (
+                    <Anime></Anime>
+                  )}
+               </div>
+               <div>
+               {listeAnime && (
+                    <AdminAnimaux ></AdminAnimaux >
+                  )}
+               </div>
+
+               <div>
+               {listeRecom && (
+                    <AdminRecomandation  ></AdminRecomandation  >
+                  )}
+               </div>
+          
+           {/* <Anime></Anime> */}
+
+       </div>
+       
+       <div className="right-section">
+           <div className="nav">
+               <button id="menu-btn">
+                   <span className="material-icons-sharp">
+                       menu
+                   </span>
+               </button>
+               {/* <div className="dark-mode" onClick={toggleDarkMode}>
+                   <span className={`material-icons-sharp ${isDarkMode ? 'active' : ''}`}>
+                       light_mode
+                   </span>
+                   <span className={`material-icons-sharp ${isDarkMode ? '' : 'active'}`}>
+                       dark_mode
+                   </span>
+               </div> */}
+               
+
+               <div className="profile">
+                   <div className="infeur">
+                       <p>Hey, <b>Reza</b></p>
+                       <small className="text-muted">admin</small>
+                   </div>
+                   
+                   <div className="profile-photo">
+                       <img className='imgdesVete' src="src/assets/image/profile-1.jpg" alt="" />
+                   </div>
+               </div>
+
+           </div>
+         
+            
+
+       </div>
+
+      
+   </div>
     </div>
+   
+    
+  
+    </>
   )
 }
 

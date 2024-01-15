@@ -4,8 +4,40 @@ import { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Footer from '../composant/footer';
+import Header from '../composant/header';
+import { Link } from 'react-router-dom';
+import Video from './video';
+import Shopping from './shopping';
+import '../css/video.css'
 const Acceuil = () => {
+  // const [openModal, setOpenModal] = useState(false);
+  // const [selectedProduct, setSelectedProduct] = useState({});
+  const [products, setProducts] = useState([]);
 
+  // const handleOpenModal = (product) => {
+  //   setSelectedProduct(product);
+  //   setOpenModal(true);
+  // };
+
+  // const handleCloseModal = () => {
+  //   setOpenModal(false);
+  // };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('http://localhost:8000/api/lister');
+      const data = await response.json();
+      setProducts(data);
+    };
+
+    fetchData();
+  }, []);
+
+    const handleLogout = () => {
+        logout(); // Appel de la fonction de déconnexion
+        // Redirigez l'utilisateur vers la page de connexion ou une autre page appropriée.
+      };
     // slider
     const settings = {
         dots: true,
@@ -23,296 +55,139 @@ const Acceuil = () => {
         slidesToShow: 3,
         slidesToScroll: 3,
         autoplay: true,
-        autoplaySpeed: 4000,
+        autoplaySpeed: 2000,
       };
     return (  
         <>
-        <div className="container">
+        <div className="containeracceuil">
+            <Header></Header>
             <div className="header">
-                <header >
-                
 
-                    <div className="logo">
-                        <img src="src\assets\image\logo3.svg" alt=""/>
-                    </div>
-                    <div>
-                    <ul className="menu">
-                        <li><a href="#home">Acceuil</a></li>
-                        <li><a href="#cars">Sante animal</a></li>
-                        <li><a href="/boutique">Nos produits</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                    </div>
-
-                    <div>
-                        <button className="login_btn">se connecter</button>
-                    </div>
-                </header>
                 <div className="imgg ">
                     <div className="texte">
-                        <h2>Faites decoler votre elevage avec les meilleurs eleveurs</h2>
+                        <h2>Bienveue sur notre plateforme dédiée à simplifier l'élevage</h2>
+                        <p>C'est pourquoi nous avons créé une solution complète pour rendre la gestion de votre exploitation plus facile, plus efficace et plus gratifiante.</p>
                         <div className="button">
-                            <div className="button1">
+                            {/* <div className="button1">
                                 <button><a href="">Qui sommes nous?</a></button>
                             </div>
-                            <div className="button2">
+                            {/* <div className="button2">
                                 <button><a href="">Rejoingnez nous </a></button>
-                            </div>
+                            </div> */} */}
                         
                         </div>
                     </div>
                 </div>
             </div>
-            <main>
-                <div className="contenuslider">
-                    <div className="slider">
-                        <h2>poste recente</h2>
-                    <div className="slider-container">
-                            <Slider className='sider' {...settings}>
-                                <div className="image1" >
-                                    <img src="src/assets/image/belier.jpg" alt="" />
-                                    <div className="content">
-                                        <h4>Acheter ce mouton</h4>
-                                        <button><a href="#">acheter</a></button>
-                                    </div>
-                                </div>
-                                <div className="image1">
-                                <img src="src/assets/image/belier.jpg" alt="" />
-                                <div className="content">
-                                        <h4>Acheter ce mouton</h4>
-                                        <button><a href="#">acheter</a></button>
-                                </div>
-                            
-                                </div>
-                                <div className="image1">
-                                    <img src="src/assets/image/belier.jpg" alt="" />
-                                    <div className="content">
-                                            <h4>Acheter ce mouton</h4>
-                                            <button><a href="#">acheter</a></button>
-                                    </div>
-                                </div>
-                                <div className="image1">
-                                <img src="src/assets/image/belier.jpg" alt="" />
-                                <div className="content">
-                                        <h4>Acheter ce mouton</h4>
-                                        <button><a href="#">acheter</a></button>
-                                </div>
-                                </div>
-                                <div className="image1">
-                                    <img src="src/assets/image/belier.jpg" alt="" />
-                                    <div className="content">
-                                            <h4>Acheter ce mouton</h4>
-                                            <button><a href="#">acheter</a></button>
-                                    </div>
-                                </div>
-                                <div className="image1">
-                                    <img src="src/assets/image/belier.jpg" alt="" />
-                                    <div className="content">
-                                        <h4>Acheter ce mouton</h4>
-                                        <button><a href="#">acheter</a></button>
-                                    </div>
-                                </div>
-                                
-                            </Slider>
-                        </div>
-                    </div>
-                </div>
-    
-            </main>
-            <div className="eleveur">
-                <div className="elevage">
-                    <div className="group">
-                        <img src="src/assets/image/groupe.svg" alt="" />
-                    </div>
-                    <div className="texte">
-                        <h1>Vous etes eleveur de mouton ladoum</h1>
-                        <p>Entrez dans une nouvelle ère de gestion d'élevage 
-                        avec notre application conçue spécialement pour les éleveurs engagés dans 
-                        la promotion de la santé, du bien-être animal et de la productivité.
-                        Simplifiez votre quotidien en accédant à des outils avancés pour suivre la santé de vos animaux,  surveiller la croissance et la nutrition,
-                            tout en étant connecté à une communautéde professionnels vétérinaires prêts à vous soutenir. 
-                            Découvrez comment notre application peut révolutionner votre manière de gérer.
-                        </p>
-                        <div className="button">
-                            <div className="button1">
-                                <button><a href="">Qui sommes nous?</a></button>
-                            </div>
-                            <div className="button2">
-                                <button><a href="">Rejoingnez nous </a></button>
-                            </div>
-                        
-                        </div>
 
-                    </div>
-                </div>
-                <div className="veterinaire">
-                        <div className="contenuV">
-                            <div className="texto">
-                                <h1>Vous êtes un vétérinaire passionné par <span></span>
-                                <span>les soins aux animaux ?</span></h1>
-                            <p>Rejoignez une communauté dynamique de vétérinaires pour échanger des idées,
-                                 poser des questions, et collaborer avec vos pairs.
-                                 Accédez à une vaste bibliothèque de ress</p>
-                                 <div className="button1">
-                                <button><a href="">Rejoignez les veterinaire</a></button>
-                                 </div>
-                            </div>
-                            <div className="imageV">
-                              <img src="src/assets/image/vet.svg" alt="" />
-
-                            </div>
-                        </div>
-                </div>
-            </div>
-            <section>
-            <h1 className='titre'>Nos services</h1>
-                <div className="service">
-                    
-                    <div className="service">
-                        <div className="serve">
-                         <img src="src/assets/image/sante.svg" alt="" />
-                         <h6>sante</h6>
-                         <p>Conseils sanitaires</p>
-                        </div>
-                        <div className="serve">
-                         <img src="src/assets/image/sante.svg" alt="" />
-                         <h6>sante</h6>
-                         <p>Conseils sanitaires</p>
-                        </div>
-                        <div className="serve">
-                         <img src="src/assets/image/sante.svg" alt="" />
-                         <h6>sante</h6>
-                         <p>Conseils sanitaires</p>
-                        </div>
-                        <div className="serve">
-                         <img src="src/assets/image/sante.svg" alt="" />
-                         <h6>sante</h6>
-                         <p>Conseils sanitaires</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <div className="jumbo">
-                <div className="jumbo-titlegroup">
-                    <h5 className='text-after'>Temoignages</h5>
-                    <p>Ce qu'ils disent à propos de notre travail</p>
-    
-                </div>
+           
+               
+                    <Shopping></Shopping>
+                  <div class="section__containereur about__containereur" id="about">
+      <div class="section__header">A propos de L'elevage</div>
+      <p class="section__description">
+      L'élevage, c'est bien plus qu'une simple activité économique ; c'est un art transmis de génération en génération. Les éleveurs, véritables gardiens du bien-être animal, dédient leur vie à la préservation des races, au développement de lignées exceptionnelles, et à l'établissement de liens durables avec leurs animaux. Chaque geste, chaque décision prise dans le monde de l'élevage reflète un profond respect pour la vie et un engagement envers la durabilité.
+      </p>
+    </div>
                 
-                <div className="reviews-content">
-                 <Slider className='temoignage' {...parametre}>
-                    <div className="testimonial-carousel">
-                        <div className="single-testimonial-box">
-                            <div className="testimonial-description">
-                                <div className="testimonial-info">
-                                    <div className="testimonial-img">
-                                        <img src="src\assets\image\profil.jpg" alt="clients" />
-                                    </div>
-                                    <div className="testimonial-person">
-                                        <h2>Tom Leakar</h2>
-                                        <h4>London, UK</h4>
-                                    </div>
-                                </div>
-                                <div className="testimonial-comment">
-                                    <p>
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis eaque.
-                                    </p>
-                                </div>
-                            </div>
-                            
-                        </div> 
-                    </div>
-                    <div className="testimonial-carousel">
-                        <div className="single-testimonial-box">
-                            <div className="testimonial-description">
-                                <div className="testimonial-info">
-                                    <div className="testimonial-img">
-                                        <img src="src\assets\image\profil.jpg" alt="clients" />
-                                    </div>
-                                    <div className="testimonial-person">
-                                        <h2>Tom Leakar</h2>
-                                        <h4>London, UK</h4>
-                                    </div>
-                                </div>
-                                <div className="testimonial-comment">
-                                    <p>
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis eaque.
-                                    </p>
-                                </div>
-                            </div>
-                            
-                        </div> 
-                    </div>
-                    <div className="testimonial-carousel">
-                        <div className="single-testimonial-box">
-                            <div className="testimonial-description">
-                                <div className="testimonial-info">
-                                    <div className="testimonial-img">
-                                        <img src="src\assets\image\profil.jpg" alt="clients" />
-                                    </div>
-                                    <div className="testimonial-person">
-                                        <h2>Tom Leakar</h2>
-                                        <h4>London, UK</h4>
-                                    </div>
-                                </div>
-                                <div className="testimonial-comment">
-                                    <p>
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis eaque.
-                                    </p>
-                                </div>
-                            </div>
-                            
-                        </div> 
-                    </div>
-                    <div className="testimonial-carousel">
-                        <div className="single-testimonial-box">
-                            <div className="testimonial-description">
-                                <div className="testimonial-info">
-                                    <div className="testimonial-img">
-                                        <img src="src\assets\image\profil.jpg" alt="clients" />
-                                    </div>
-                                    <div className="testimonial-person">
-                                        <h2>Tom Leakar</h2>
-                                        <h4>London, UK</h4>
-                                    </div>
-                                </div>
-                                <div className="testimonial-comment">
-                                    <p>
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis eaque.
-                                    </p>
-                                </div>
-                            </div>
-                            
-                        </div> 
-                    </div>
-                    <div className="testimonial-carousel">
-                        <div className="single-testimonial-box">
-                            <div className="testimonial-description">
-                                <div className="testimonial-info">
-                                    <div className="testimonial-img">
-                                        <img src="src\assets\image\profil.jpg" alt="clients" />
-                                    </div>
-                                    <div className="testimonial-person">
-                                        <h2>Tom Leakar</h2>
-                                        <h4>London, UK</h4>
-                                    </div>
-                                </div>
-                                <div className="testimonial-comment">
-                                    <p>
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis eaque.
-                                    </p>
-                                </div>
-                            </div>
-                            
-                        </div> 
-                    </div>
-                    </Slider>
+                    <div className="elevage">
                     
-                 
+                    <Video></Video>
                 </div>
-
-            </div>
+           
+            
+            <div className="eleveur">
+                 <h2>Nos Services</h2>
+                  <div className="localiser">
+                <div className="loger">
+                    <div className="fall">
+                    
+                    
+                    </div>
+                    <div className="localiter">
+                        <div className="logimg">
+                          <div className="merdrr"><img className='' src="src/assets/image/localite.svg" alt="" /></div>
+                            <div className="textlog">
+                                <h3>Pour les eleveur</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, doloremque suscipit, cumque, facilis
+                                    sapiente illo neque non dolore in nam tempore temporibus iste debitis. A quasi quo illo ex rerum.
+                                    </p>
+                                <button>inscrivez vous</button>
+                            </div>
+                        </div>
+                        <div className="logimg">
+                          <div className="merdrr"><img className='' src="src/assets/image/ken.jpg" alt="" /></div>
+                            <div className="textlog">
+                                <h3>Localisation</h3>
+                                <p>Utilisez notre fonction de localisation pour trouver des vétérinaires dans votre zone.
+                                     Des experts à portée de main pour répondre à vos besoins..
+                                     Planifiez des consultations directement à travers la plateforme.
+                                      .</p>
+                                <button className='redd'>localiser maintenant</button>
+                            </div>
+                        </div>
+                        <div className="logimg">
+                          <div className="merdrr"><img className='' src="src/assets/image/corne.svg" alt="" /></div>
+                            <div className="textlog">
+                                <h3>Ventes</h3>
+                                <p>
+                                Les vétérinaires inscrits fournissent des conseils pratiques et des recommandations pour maintenir la santé optimale de vos animaux. Obtenez des informations sur les maladies.
+                                .</p>
+                                <button className='redd'>inscrivez vous</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+              </div>
+            
+                </div>
+            
+           
+    
+    {/* <div className="section__container why__container">
+      <div className="why__image">
+        <img src="src/assets/image/team-1.jpg" alt="why choose us" />
+      </div>
+      <div className="why__content">
+        <h2 className="section__why__header">Why Choose Us</h2>
+        <p>
+          With a steadfast commitment to your well-being, our team of highly
+          trained healthcare professionals ensures that you receive nothing
+          short of exceptional patient experiences.
+        </p>
+        <div className="why__grid">
+          <span><i class="fa-solid fa-location-dot fa-sm"></i></span>
+          <div>
+            <h4>Intensive Care</h4>
+            <p>
+              Our Intensive Care Unit is equipped with advanced technology and
+              staffed by team of professionals
+            </p>
+          </div>
+          <span><i class="fa-solid fa-notes-medical fa-sm"></i></span>
+          <div>
+            <h4>Free Ambulance Car</h4>
+            <p>
+              A compassionate initiative to prioritize your health and
+              well-being without any financial burden.
+            </p>
+          </div>
+          <span><i class="fa-solid fa-cart-shopping fa-sm"></i></span>
+          <div>
+            <h4>Medical and Surgical</h4>
+            <p>
+              Our Medical and Surgical services offer advanced healthcare
+              solutions to address medical needs.
+            </p>
+          </div>
         </div>
+      </div>
+    </div> */}
+           
+             <Footer></Footer>
+        </div>
+        
         </>
     );
 }

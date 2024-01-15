@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight&family=Mulish:ital,wght@0,200;0,400;0,600;0,700;0,900;1,200;1,600&family=Poppins&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter+Tight&family=Mulish:ital,wght@0,200;0,400;0,600;0,700;0,900;1,200;1,600&family=Poppins&display=swap');
+
 *{
     font-family: 'Mulish', sans-serif;
     margin: 0;
@@ -6,62 +7,10 @@
     box-sizing: border-box;
 }
 
-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 20;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 8%;
-    height: 70px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-    transition: top 0.3s;
-    position: fixed;
-  }
-  
-  
-header .logob img {
 
-}
-header .logob span {
-    color: #000;
-}
-.menub {
-    display: flex;
-    text-align: center;
-}
-.menub li {
-    list-style: none;
-    margin: 0 15px;
-}
-.menub li a {
-    font-size: 14px;
-    color: #000;
-    font-weight: 300;
-    transition: 0.2s;
-    font-family: 'Mulish Regular', sans-serif;
-}
-.menub li a:hover {
-    color: #22E41E;
-}
-header button {
-    background-color: #22E41E;
-    cursor: pointer;
-    color: #fff;
-    padding: 10px 24px;
-    border-color: #22E41E;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-
-    
-}
 .imgb {
     height: 490px;
-    margin-top: 4%;
+   
     background-image: url('../assets/image/boutique.svg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -88,7 +37,7 @@ header button {
 .texteb .sen h2{
     padding-right: 22%;
     padding-top: 10px;
-    color: #22E41E;
+    color: #FF9021;
 }
 .moncar{
     height: 1265px;
@@ -139,14 +88,81 @@ line-height: normal;
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
-    background-color: #22E41E;
+    background-color: #FF9021;
     color: #ffffff;
     border-radius: 8px;
-   border-color: #22E41E;
+   border-color: #FF9021;
 }
-.moncar .car{
+.car{
     display: flex;
     justify-content: center;
     gap: 30px;
     margin-top: 20px;
 }
+
+
+.image10 img{
+    width: 250px;
+    height: 296px;
+    flex-shrink: 0;
+    border-radius: 10px;
+
+}
+.sider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+}
+.sider .image10{
+    margin: 5px;
+}
+.images .slider-container{
+    display: flex;
+    align-items: center;
+} 
+.image10 {
+    position: relative;
+  }
+  
+  .contentt {
+    width: 250px;
+    height: 296px;
+    display: none;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 49%;
+    flex-shrink: 0;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border-radius: 10px;
+  }
+  
+  .image10:hover .contentt {
+    display: block; 
+  }
+  .contentt h4{
+    padding-top: 50%;
+  }
+  .contentt button{
+    background-color: #FF9021;
+    cursor: pointer;
+    padding: 10px 24px;
+    border-color: #FF9021;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin-top: 15px;
+  }
+  .contentt button a{
+    color: #fff;
+    text-decoration: none;
+  }
+  .car tr td .image10{
+    margin: 10px;
+    gap: 30px;
+  }
+  .car tr {
+    margin-top: 30px;
+  } */

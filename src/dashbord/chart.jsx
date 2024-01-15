@@ -69,7 +69,7 @@ function Chart() {
     stroke: {
       curve: 'smooth',
     },
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'aout', 'Sep', 'Oct', 'Nov', 'Dec'],
     markers: {
       size: 0,
     },
